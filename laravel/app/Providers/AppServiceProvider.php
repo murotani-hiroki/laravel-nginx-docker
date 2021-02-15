@@ -14,6 +14,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        $this->app->singleton(\App\Service\TradeRepository::class, \App\Repositories\TradeRepository::class);
+        $this->app->singleton(\App\Service\CurrencyPairRepository::class, \App\Repositories\CurrencyPairRepository::class);
     }
 
     /**
