@@ -1,0 +1,7 @@
+# AWS ECR用イメージのビルド用
+FROM nginx
+COPY ./docker/php/php.ini /usr/local/etc/php/
+COPY ./docker/nginx/default.conf /etc/nginx/conf.d/
+
+# ※起動の際、php74fpmの名前解決できる様に --link の指定が必要
+# docker run -d --name nginx --link php74fpm:php74fpm -p 8080:80 nginx:latest
